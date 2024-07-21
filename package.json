@@ -4,8 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
+    "start": "npm-run-all --parallel start:**",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app"
+    "start:node": "nodemon app.js",
+    "start:react": "cd view && cross-env PORT=3002 npm start"
   },
   "keywords": [],
   "author": "",
@@ -25,6 +27,7 @@
     "sequelize-cli": "^6.6.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "nodemon": "^3.1.4",
     "npm-run-all": "^4.1.5"
   }
