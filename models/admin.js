@@ -20,9 +20,7 @@ class Admin extends Sequelize.Model {
         admin_pwd: {
             type: Sequelize.STRING(255),
             allowNull: false,
-          },
-
-        
+          }, 
    
        
      

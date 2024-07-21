@@ -64,9 +64,9 @@ class Notification extends Sequelize.Model {
     db.Notification.belongsTo(db.Comment, { foreignKey: "comment_id", targetKey: "comment_id" });  
     db.Notification.belongsTo(db.Friend, { foreignKey: "user_id2", targetKey: "user_id2" });
     db.Notification.belongsTo(db.Like, { foreignKey: "like_id", targetKey: "like_id" });
-    // db.Notification.belongsTo(db.Qna, { foreignKey: "qna_id3", targetKey: "qna_id" }); 
-    // db.Notification.belongsTo(db.Answer, { foreignKey: "ans_id", targetKey: "ans_id" }); 
+    db.Notification.belongsTo(db.QnA, { foreignKey: "qna_id3", targetKey: "qna_id" }); 
+    db.Notification.belongsTo(db.Answer, { foreignKey: "ans_id", targetKey: "ans_id" }); 
   }
-    }
+}
 
 module.exports = Notification;

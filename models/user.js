@@ -55,8 +55,10 @@ class User extends Sequelize.Model {
         user_nick:{
           type: Sequelize.STRING(255),
           allowNull: false,
-
-
+        },
+        user_point:{
+          type: Sequelize.BIGINT,
+          allowNull: false,
         }
      
       },
@@ -81,9 +83,10 @@ class User extends Sequelize.Model {
       db.User.hasMany(db.Friend, { foreignKey: "user_id", sourceKey: "user_id" });
       db.User.hasMany(db.Like, { foreignKey: "diary_user", sourceKey: "user_id" });
       db.User.hasMany(db.Notification, { foreignKey: "user_id", sourceKey: "user_id" });
-      // db.User.hasMany(db.Qna, { foreignKey: "user_id", sourceKey: "user_id" });
-      // db.User.hasMany(db.Answer, { foreignKey: "user_id", sourceKey: "user_id" });
+      db.User.hasMany(db.QnA, { foreignKey: "user_id", sourceKey: "user_id" });
+      db.User.hasMany(db.Answer, { foreignKey: "user_id", sourceKey: "user_id" });
       db.User.hasMany(db.TodayAnswer, {foreignKey: "user_id",sourceKey: "user_id", onDelete: "CASCADE"});
+      db.User.hasMany(db.Point, {foreignKey: "user_id",sourceKey: "user_id", onDelete: "CASCADE"});
     
     }
 

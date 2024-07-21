@@ -18,7 +18,6 @@ class QnA extends Sequelize.Model {
           type: Sequelize.BIGINT,
           allowNull: false,
           primaryKey: true,
-          autoIncrement: true
 
         }
       },
@@ -37,7 +36,7 @@ class QnA extends Sequelize.Model {
   
 // QnA 와 User 간의 N:1 관계 설정
     static associate(db) { // DB 관계설정
-      db.QnA.belongsToMany(db.User, {
+      db.QnA.belongsTo(db.User, {
         foreignKey: "user_id",
         sourceKey: "user_id",
         onDelete: "CASCADE",

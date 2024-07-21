@@ -15,6 +15,10 @@ const Comment = require("./comment");
 const Friend = require('./friend');
 const Like = require('./like');
 const Notification = require("./notification");
+const Point = require("./point");
+const Profile = require("./profile");
+const QnA = require("./qna");
+const Answer = require("./anwer");
 
 
 const db = {};
@@ -33,6 +37,10 @@ db.Comment = Comment;
 db.Friend = Friend;
 db.Like = Like;
 db.Notification = Notification;
+db.Point = Point;
+db.Profile = Profile;
+db.QnA = QnA;
+db.Answer = Answer;
 
 
 
@@ -48,6 +56,11 @@ Friend.initiate(sequelize);
 Like.initiate(sequelize);
 Notification.initiate(sequelize);
 Admin.initiate(sequelize);
+Point.initiate(sequelize);
+Profile.initiate(sequelize);
+QnA.initiate(sequelize);
+Answer.initiate(sequelize);
+
 
 
 db.sequelize = sequelize;
@@ -64,6 +77,10 @@ TodayAnswer.associate(db)
 TodayQuestion.associate(db)
 Checklist.associate(db)
 Todo.associate(db)
+Point.associate(db)
+Profile.associate(db)
+QnA.associate(db)
+Answer.associate(db)
 
 
 

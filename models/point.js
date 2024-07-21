@@ -1,24 +1,30 @@
 const {Sequelize} = require("sequelize");
 
-class Answer extends Sequelize.Model {
+class Point extends Sequelize.Model {
   static initiate(sequelize) {
     return super.init(
       {
-        ans_id: {
+        point_id: {
           type: Sequelize.BIGINT,
           allowNull: false,
           primaryKey: true,
           autoIncrement: true
+
         },
-        ans_content: {
+        point_num: {
+          type: Sequelize.BIGINT,
+          allowNull: false,
+          defaultValue: 0
+        },
+        point_con: {
           type: Sequelize.STRING(255),
-          allowNull: false
+          allowNull: false,
         },
         user_id: {
           type: Sequelize.BIGINT,
           allowNull: false,
           primaryKey: true,
-          autoIncrement: true
+         
 
         }
       },
@@ -35,23 +41,16 @@ class Answer extends Sequelize.Model {
     );
   }
   
-// Answer과 Question 간의 1:1 관계 설정
+
+  // User와 Point 간의 1:n 관계 설정
     static associate(db) { // DB 관계설정
-      db.Answer.belongsTo(db.QnA, {
-        foreignKey: "qna_id",
-        sourceKey: "qna_id",
+      db.Point.belongsTo(db.User, {
+        foreignKey: "user_id",
+        sourceKey: "user_id",
         onDelete: "CASCADE",
       });
     }
-
-// Answer과 Admin 간의 1:1 관계 설정
-static associate(db) { // DB 관계설정
-    db.Answer.belongsTo(db.Admin, {
-      foreignKey: "admin_id",
-      sourceKey: "admin_id",
-      onDelete: "CASCADE",
-    });
-  }
+    
 }
 
-module.exports = Answer;
+module.exports = Point;
