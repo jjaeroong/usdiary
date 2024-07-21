@@ -1,11 +1,10 @@
-const Sequelize = require('sequelize');
 const express = require('express');
 const app = express();
 const path = require('path');
 const morgan = require('morgan');
 const {sequelize} = require('./models'); // db.sequelize 객체
 
-app.set('port', process.env.PORT3001);
+app.set('port', process.env.PORT||3001);
 
 sequelize.sync({force : false}) // 서버 실행시 MySQL 과 연동되도록 하는 sync 메서드 
 // force : true 로 해놓으면 서버 재시작마다 테이블이 재생성됨. 테이블을 잘못 만든 경우에 true 로 설정
