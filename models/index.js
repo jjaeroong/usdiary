@@ -4,6 +4,7 @@ const Sequelize = require('sequelize');
 const env = process.env.NODE_ENV || 'development';
 const config = require(__dirname + '/../config/config.json')[env];
 const User = require("./user");
+const Admin = require("./admin");
 const Diary = require("./diary");
 const Board = require("./board");
 const TodayAnswer = require("./today_answers");
@@ -14,13 +15,14 @@ const Comment = require("./comment");
 const Friend = require('./friend');
 const Like = require('./like');
 const Notification = require("./notification");
-const Diary = require("./diary");
+
 
 const db = {};
 
 const sequelize = new Sequelize(config.database, config.username, config.password, config); 
 
 db.User = User;
+db.Admin = Admin;
 db.Diary = Diary;
 db.Board = Board;
 db.TodayAnswer = TodayAnswer;
@@ -31,7 +33,6 @@ db.Comment = Comment;
 db.Friend = Friend;
 db.Like = Like;
 db.Notification = Notification;
-db.Diary = Diary;
 
 
 
@@ -42,16 +43,11 @@ TodayAnswer.initiate(sequelize)
 TodayQuestion.initiate(sequelize)
 Checklist.initiate(sequelize)
 Todo.initiate(sequelize)
-TodayAnswer.associate(db);
-TodayQuestion.associate(db);
-Checklist.associate(db);
-Todo.associate(db);
 Comment.initiate(sequelize);
 Friend.initiate(sequelize);
 Like.initiate(sequelize);
 Notification.initiate(sequelize);
-Diary.initiate(sequelize);
-
+Admin.initiate(sequelize);
 
 
 db.sequelize = sequelize;
@@ -64,7 +60,12 @@ Comment.associate(db);
 Friend.associate(db);
 Like.associate(db);
 Notification.associate(db);
-Diary.associate(db);
+TodayAnswer.associate(db)
+TodayQuestion.associate(db)
+Checklist.associate(db)
+Todo.associate(db)
+
+
 
 
 module.exports = db;

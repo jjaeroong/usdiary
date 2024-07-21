@@ -1,7 +1,7 @@
 const {Sequelize} = require("sequelize");
 
 
-class Diary extends Sequelize.Model {
+class Board extends Sequelize.Model {
   static initiate(sequelize) {
     return super.init(
       {
@@ -44,4 +44,4 @@ class Diary extends Sequelize.Model {
   }
 }
 
-module.exports = Diary;
+module.exports = Board;

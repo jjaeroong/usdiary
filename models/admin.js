@@ -49,4 +49,4 @@ class Admin extends Sequelize.Model {
 //   }
 }
 
-module.exports = Diary;
+module.exports = Admin;

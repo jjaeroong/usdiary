@@ -77,12 +77,12 @@ class User extends Sequelize.Model {
         sourceKey: "user_id", //이 테이블의 참조당하는 값
         onDelete: "CASCADE",
       });
-      db.hasMany(db.Comment, { foreignKey: "user_id", sourceKey: "user_id" });
-      db.hasMany(db.Friend, { foreignKey: "user_id", sourceKey: "user_id" });
-      db.hasMany(db.Like, { foreignKey: "diary_user", sourceKey: "user_id" });
-      db.hasMany(db.Notification, { foreignKey: "user_id", sourceKey: "user_id" });
-      db.hasMany(db.Qna, { foreignKey: "user_id", sourceKey: "user_id" });
-      db.hasMany(db.Answer, { foreignKey: "user_id", sourceKey: "user_id" });
+      db.User.hasMany(db.Comment, { foreignKey: "user_id", sourceKey: "user_id" });
+      db.User.hasMany(db.Friend, { foreignKey: "user_id", sourceKey: "user_id" });
+      db.User.hasMany(db.Like, { foreignKey: "diary_user", sourceKey: "user_id" });
+      db.User.hasMany(db.Notification, { foreignKey: "user_id", sourceKey: "user_id" });
+      // db.User.hasMany(db.Qna, { foreignKey: "user_id", sourceKey: "user_id" });
+      // db.User.hasMany(db.Answer, { foreignKey: "user_id", sourceKey: "user_id" });
       db.User.hasMany(db.TodayAnswer, {foreignKey: "user_id",sourceKey: "user_id", onDelete: "CASCADE"});
     
     }

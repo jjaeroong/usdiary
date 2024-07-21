@@ -22,10 +22,6 @@ class Friend extends Sequelize.Model {
         user_id: {
           type: Sequelize.BIGINT,
           allowNull: true,
-          references: {
-            model: 'User', 
-            key: 'user_id', 
-          },
         }
       },
       {
