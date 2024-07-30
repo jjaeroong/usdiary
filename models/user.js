@@ -34,9 +34,6 @@ class User extends Sequelize.Model {
           type: Sequelize.DATE,
           allowNull: false,
         },
-        user_email: {
-          type: Sequelize.STRING(255),
-        },
         ban_count: {
           type: Sequelize.BIGINT,
           allowNull: false,
